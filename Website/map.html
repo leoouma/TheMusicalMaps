@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TheMusicalMaps</title>
+	<link rel="icon" type="image/png" href="images/favicon.png"/>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+	<!-- style sheets -->
+	<link rel="stylesheet" href="css/mainstyle.css">
+
+	<!-- leaflet -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<style>
+		.leaflet-popup-content-wrapper, .leaflet-popup.tip {
+  			background-color: rgb(245, 241, 237);
+			font-family: "Montserrat", sans-serif;
+		}
+	</style>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script src="js/papaparse.min.js"></script>
+
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- apex charts -->
+	<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+	<!-- classy brew -->
+	<script src="js/classybrew.js"></script>
+</head>
+<body id = "body">
+
+	<div id="popup" class="modal">
+
+		<!-- Modal content -->
+		<div class="modal-content">
+		  <span class="close">&times;</span>
+		  <h3>How to Use This Map</h3>
+		  <p>
+			When viewing our map, you can click on a genre to have it map the locations of concerts in that genre within the years 2019 and 2020. The circle on the map indicates the location of a concert, and the size of the circle indicates how popular that concert was. 
+		</p>
+		<p>At the bottom left of the map, when a genre is selected, a key will appear showing which colors mean which year. A genre can be added to the map by selecting it, and one can be removed from the map by clicking it again. </p>
+		<p>The plus and minus sign in the top left of the map can be used to zoom in our out on the map to get a closer look at the locations. </p>
+		<p>When you hover over a circle, you are given more information on the concert, specifically the name of the artist performing, the name of the event, the date and time at which it occurred, and the venue at which it was held. </p>
+		<p>You are also able to use the search bar to look for specific artists and see their concerts within the given years, their location, and the popularity of those events. When you search for an artist in the search bar, their name is added to the sidebar. You can then click that button on the sidebar to visualize the information. You can add other artists by also searching for them and then clicking on the button, and remove them from the map by clicking it again.</p>
+		
+		</div>
+	  
+	  </div>
+	<header>
+        <h1><a href="map.html">The Musical Maps</a></h1>
+        <div class = "search-container">
+            <input type="text" id = "searchbox" placeholder="Search for an artist">
+            <button onclick="searchArtist();"><i class="fa fa-search"></i></button>
+        </div>
+		<div style="font-size: 24px;">
+			<i class="fa fa-info-circle" id="infoBtn"></i>
+		</div>
+        <nav>
+            <ul class = "nav_links" >
+                <li><a href=""><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a><br></li>
+                <li><a href="data.html">Data</a></li>
+            </ul>
+        </nav>
+    </header>
+	<div class="sidebar">
+		<div class ="sidebar-tags" id="sidebar-tags">
+			<div class="sidebar-item" id="toggleChart" onclick="toggleChart()" style="background: rgb(227 222 218); color: #616161;">Show Chart</div>
+			<!--<div class="sidebar-title">Choropleth (US)</div>
+			<div class="sidebar-item" id="choropleth2019" onclick="toggleChoroplethSidebarItem(0);">2019</div>
+			<div class="sidebar-item" id="choropleth2020" onclick="toggleChoroplethSidebarItem(1);">2020</div>-->
+			<div class="sidebar-title">Genres</div>
+		</div>
+		<div class="sidebar-dashboard" id="sidebar-dashboard">
+			<div class="sidebar-chart" id="sidebar-chart-1" style="height: 50%;"></div>
+			<div class="sidebar-chart" id="sidebar-chart-2" style="height: 50%;"></div>
+		</div>
+	</div>
+	<div class="content">
+		<div id="map"></div>
+	</div>
+	
+
+	<script src="js/map.js"></script>
+	<script src="js/searchbar.js"></script>
+
+</body>
+</html>

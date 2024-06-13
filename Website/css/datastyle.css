@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+@font-face {
+    font-family: 'speckdisplay';
+    src: url('../fonts/speck-display-webfont.woff2') format('woff2'),
+         url('../fonts/speck-display-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body,html {
+	margin:0;
+	height:100%;
+	width:100%;
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	text-align: left;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 80px 1fr 50px;
+	grid-template-columns: 20% 80%;
+	grid-template-areas: 
+	"header header header"
+	"content content content"
+	"content content content";
+}
+
+header h1{
+	font-family: "speckdisplay";
+	font-size: 2em;
+	float:left;
+}
+
+header {
+	grid-area: header;
+	padding-left: 10px;
+	background-color: rgb(245, 241, 237);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align:middle;
+	
+	/* font-size: 1em; */
+}
+
+header a{
+    text-decoration: none;
+    color: black;
+}
+
+header .search-container{
+    float:none;
+    vertical-align:middle; 
+    text-align: left;
+    height:100%;
+    width:50%;
+    margin-top:35px;
+}
+
+.search-container input{
+    display:inline-block;
+    vertical-align:middle; 
+    width: calc(100% - 60px); 
+    height:40px;
+    min-width:30%; 
+    border:none;
+    border-radius: 20px;
+    padding-left: 10px;
+    font-size: 1em;
+    outline-width: 0;
+}
+
+.search-container button{
+    display:inline-block;
+    vertical-align:middle; 
+    width:40px;
+    height:40px;
+    background-color:rgb(255, 255, 255);
+    border:none;
+    border-radius: 50px;
+}
+
+.search-container button:hover{
+    background-color:rgb(250, 248, 248);
+}
+
+.search-container button:active{
+    background-color:rgb(228, 226, 226);
+}
+
+.search-container button i{
+    padding: 1px;
+}
+
+nav{
+    float: right;
+}
+
+.nav_links {
+    list-style: none;
+}
+
+.nav_links li{
+    display:inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a{
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.nav_links li a:hover{
+    color:rgb(58, 57, 55)
+}
+
+.content {
+    margin-left:30px;
+	grid-area: content;
+    text-align: left;
+}
+
+.bio_container{
+    display: flex;
+    padding-top:40px;
+}
+
+.bio_container img{
+    border-radius: 12px;
+}
+
+.bio_container p{
+    padding:40px;
+}
